@@ -944,6 +944,23 @@ function logout(){
   });
 }
 
+/* ─── حالت سبک ─── */
+function updateLiteLabel(){
+  var b=document.getElementById('liteToggle');
+  if(!b)return;
+  b.textContent=document.documentElement.classList.contains('lite')
+    ?'⚡ حالت سبک: روشن (کلیک برای خاموش کردن)'
+    :'⚡ حالت سبک: خاموش (کلیک برای سیستم‌های قدیمی)';
+}
+function toggleLite(){
+  var on=!document.documentElement.classList.contains('lite');
+  document.documentElement.classList.toggle('lite',on);
+  try{localStorage.setItem('amlakLite',on?'1':'0')}catch(e){}
+  updateLiteLabel();
+  UI.toast(on?'حالت سبک فعال شد — انیمیشن‌ها کم شد و سرعت بالا می‌رود':'جلوه‌های کامل فعال شد — در صورت کندی، حالت سبک را روشن کنید','ok');
+  DB.log('تغییر حالت سبک',on?'روشن':'خاموش');
+}
+
 /* ─── راه‌اندازی ─── */
 App.pages={dashboard:App.pages.dashboard,properties:App.pages.properties,propNew:App.pages.propNew};
 Object.assign(App.pages,window.Pages);
@@ -961,7 +978,9 @@ document.addEventListener('DOMContentLoaded',function(){
     var act=e.target.dataset.act;
     if(act==='changepass')changePass();
     if(act==='logout')logout();
+    if(act==='lite')toggleLite();
   });
+  updateLiteLabel();
   document.getElementById('loginForm').addEventListener('submit',function(e){
     e.preventDefault();
     var u=document.getElementById('loginUser').value.trim().toLowerCase();

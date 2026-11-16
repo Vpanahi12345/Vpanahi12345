@@ -93,7 +93,7 @@ var DB={
   }
 };
 window.DB=DB;
-window.APP_VERSION='1.0.2';
+window.APP_VERSION='1.0.3';
 
 /* ───────── داده نمونه ───────── */
 function jstr(daysAgo){ var j=Jal.addDays(Jal.today(),-(daysAgo||0)); return Jal.fmt(j.jy,j.jm,j.jd) }

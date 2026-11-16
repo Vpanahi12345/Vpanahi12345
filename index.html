@@ -3,7 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="app-version" content="1.0.3">
 <title>املاک‌پلاس | نرم‌افزار مدیریت املاک</title>
+<script>/* اعمال سریع حالت سبک قبل از رندر (سیستم‌های ضعیف به‌طور خودکار تشخیص داده می‌شوند) */
+try{(function(){var s=null;try{s=localStorage.getItem('amlakLite')}catch(e){}
+if(s==='1'){document.documentElement.classList.add('lite');return}
+if(s!=='0'){var dc=navigator.hardwareConcurrency||4,dm=navigator.deviceMemory||8;
+if(dc<=2||dm<=2){document.documentElement.classList.add('lite');try{localStorage.setItem('amlakLite','1')}catch(e){}}}})()}catch(e){}</script>
 <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
@@ -50,10 +56,6 @@
         <span>ورود به سامانه</span>
       </button>
     </form>
-    <div class="login-hint">
-      <span class="hint-chip">مدیر: admin / admin123</span>
-      <span class="hint-chip">کاربر: user / 123456</span>
-    </div>
   </div>
 </div>
 
@@ -92,6 +94,7 @@
         <div class="user-menu" id="userMenu">
           <button class="user-btn" id="userBtn"></button>
           <div class="user-dropdown" id="userDropdown">
+            <button data-act="lite" id="liteToggle">⚡ حالت سبک: خاموش</button>
             <button data-act="changepass">🔑 تغییر گذرواژه</button>
             <button data-act="logout">🚪 خروج از حساب</button>
           </div>
@@ -112,6 +115,7 @@
 <script src="js/db.js"></script>
 <script src="js/components.js"></script>
 <script src="js/modules.js"></script>
+<script src="js/updater.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
