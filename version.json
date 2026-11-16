@@ -1,5 +1,6 @@
 {
-"version": "1.0.2"
-"download_url": "https://raw.githubusercontent.com/Vpanahi12345/Vpanahi12345/refs/heads/main/index.html" ,
-"release_notes": "اولین مسخه منتشر شده"
+  "version": "1.0.2",
+  "download_url": "https://raw.githubusercontent.com/Vpanahi12345/Vpanahi12345/refs/heads/main/index.html",
+  "release_notes": "افزودن سامانه به‌روزرسانی آنلاین (بررسی، دانلود و نصب، تاریخچه و بازیابی)؛ رفع دکمه‌های خروج و تغییر گذرواژه؛ حذف راهنمای ورود از صفحه اول",
+  "files": ["index.html", "css/app.css", "js/jalali.js", "js/db.js", "js/components.js", "js/modules.js", "js/updater.js", "js/app.js", "electron/main.cjs", "electron/preload.cjs", "package.json"]
 }
